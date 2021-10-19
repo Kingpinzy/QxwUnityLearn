@@ -1,0 +1,4 @@
+repository "2d project@ssl://zxcvb199612@sh03-plasticscm.unity.cn:8787"
+  path "/"
+    smartbranch "/main/296744085" 
+     
