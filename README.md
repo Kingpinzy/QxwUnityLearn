@@ -17,7 +17,10 @@
     {
         float horizontalmove;//定义移动的值
         horizontalmove= Input.GetAxis("Horizontal");//获取输入的值-1.0.1
+        if(horizontalmove != 0){
         songshu.velocity = new Vector2(horizontalmove * speed, songshu.velocity.y);//给 rigidbady赋予值的变化，使得其移动
+        }
+       
     }
 ```
 > 关键内容 
