@@ -11,13 +11,13 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Movement();      
+        Movement();
     }
     void Movement()
     {
@@ -25,18 +25,18 @@ public class PlayerControl : MonoBehaviour
         float faceorientation = Input.GetAxisRaw("Horizontal");
         songshu.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, songshu.velocity.y);
 
-        if (horizontalmove != 0) 
-        { 
-            songshu.velocity = new Vector2(horizontalmove * speed*Time.deltaTime, songshu.velocity.y);
+        if (horizontalmove != 0)
+        {
+            songshu.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, songshu.velocity.y);
         }
         if (faceorientation != 0)
         {
             transform.localScale = new Vector3(faceorientation, 1, 1);
         }
-        
+
     }
 
-       
-    
-    
+
+
+
 }
