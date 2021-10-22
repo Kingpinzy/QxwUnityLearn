@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
     public Rigidbody2D songshu;
     public float speed;
     public float jumpforce;
+    public Animator Animator;
 
     // Start is called before the first frame update
 
@@ -26,16 +27,21 @@ public class PlayerControl : MonoBehaviour
     }
     void Movement()
     {
-        float horizontalmove = Input.GetAxis("Horizontal");
+        //float horizontalmove = Input.GetAxis("Horizontal");
         float faceorientation = Input.GetAxisRaw("Horizontal");
         
-        songshu.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, songshu.velocity.y);
+        songshu.velocity = new Vector2(faceorientation * speed * Time.deltaTime, songshu.velocity.y);
+        Animator.SetFloat("running", Mathf.Abs(faceorientation));
         
         if (faceorientation != 0)
         {
             transform.localScale = new Vector3(faceorientation, 1, 1);
         }
-        
+        if (Input.GetButtonDown("Jump"))
+        {
+            songshu.velocity = new Vector2(songshu.velocity.x, jumpforce * Time.deltaTime);
+
+        }
 
     }
     void Jump()

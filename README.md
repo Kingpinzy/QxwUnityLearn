@@ -36,3 +36,42 @@
 > ### GetAxis和GetAxisRaw的区别
 > + GetAxis是在—1到1之间慢慢增加
 > + GetAxisRaw是获取坐标-1,0,1三个固定的值
+----
+### 21.10.21内容
++ 跳跃程序出现问题，Update和FixedUpdate的用法区别在但用或混用都会出现跳跃不触发or触发离谱的情况
+	+ 当移动和跳跃全部都放在FixedUpdate中时，跳跃可能不触发
+	+ 全都放在Update中，在FixedUpdate写触发检测，也会出现跳跃高度的bug
++ 解决了移动漂移的问题,移动不再进行判断，精简了代码：
+```C#
+        float horizontalmove = Input.GetAxis("Horizontal");
+        float faceorientation = Input.GetAxisRaw("Horizontal");
+        
+        songshu.velocity = new Vector2(horizontalmove * speed * Time.deltaTime, songshu.velocity.y);
+        
+        if (faceorientation != 0)
+        {
+            transform.localScale = new Vector3(faceorientation, 1, 1);
+```
+
+---
+### 21.10.22内容
++ 添加小松鼠跑动动画
++ 待机动画
++ Animator组件熟悉
+```C#
+public Animator Animator;//定义插槽
+
+
+Animator.SetFloat("running", Mathf.Abs(faceorientation));//获取动画状态转换数值
+```
+SetFloat(int/string,float value)获取一个浮点数的值
+Animator.SetFloat 从Animator组件中获取这个值
+Mathf 数学运算，提供数学计算的函数与常量
+Mathf.Abs() 取绝对值，因为动画状态不能为复，移动有复数存在，所以取faceorientation的绝对值
+##### Animator组件
++ parameters触发方式：Float、int、bool、tigger
++ Base Layer 里通过Make Transition状态转换机制
++ Conditions调整触发数值
+
+
+

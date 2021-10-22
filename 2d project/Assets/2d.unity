@@ -4020,7 +4020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1460545788
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4218,7 +4218,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1938834702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4232,21 +4232,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songshu: {fileID: 1938834701}
-  speed: 150
+  speed: 400
   jumpforce: 400
---- !u!114 &1938834703
-MonoBehaviour:
+  Animator: {fileID: 1938834703}
+--- !u!95 &1938834703
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938834697}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb572ad9e8e4e824c9ada8d65fabdd6c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2083429745
 GameObject:
   m_ObjectHideFlags: 0
