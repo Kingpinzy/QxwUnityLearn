@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,6 +49,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             songshu.velocity = new Vector2(songshu.velocity.x, jumpforce * Time.deltaTime);
+            Animator.SetBool("jumping", true);
 
         }
     }
