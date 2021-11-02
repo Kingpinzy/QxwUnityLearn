@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
+        switchAnimator();
     }
     void Movement()
     {
@@ -50,10 +51,19 @@ public class PlayerControl : MonoBehaviour
         {
             songshu.velocity = new Vector2(songshu.velocity.x, jumpforce * Time.deltaTime);
             Animator.SetBool("jumping", true);
-
         }
     }
-    
+    void switchAnimator()
+    {
+        if (Animator.GetBool("jumping"))
+        {
+            if (songshu.velocity.y < 0)
+            {
+                Animator.SetBool("jumping", false);
+                Animator.SetBool("downing", true);
+            }
+        }
+    }
 
 
 
